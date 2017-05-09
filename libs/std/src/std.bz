@@ -1,0 +1,173 @@
+Std $Module
+
+
+
+
+
+
+
+
+
+
+"Signed Integers"
+Int :: (I8, I16, I32, I64)
+I8  :: $Int8
+I16 :: $Int16
+I32 :: $Int32
+I64 :: $Int64
+
+"Unsigned Integers"
+Unt :: (U8, U16, U32, U64)
+U8  :: $Unt8
+U16 :: $Unt16
+U32 :: $Unt32
+U64 :: $Unt64
+
+"Floating Point"
+Flt :: (F16, F32, F64)
+F16 :: $Flt16
+F32 :: $Flt32
+F64 :: $Flt64
+
+"John Gustafson's Unums, because we need associative floats"
+Unm :: (N16, N32, N64)
+N16 :: $Unm16
+N32 :: $Unm32
+N64 :: $Unm64
+
+Num  :: (Int, Unt, Flt, Unm)
+
+Real :: (Flt, Unm)
+
+Discrete :: (Int, Unt)
+
+Bl :: (True, False) $BoolTF
+
+
++ :: (N:Num. N) ;; N
++ :: $add-binop
+
+- :: (N:Num. N) ;; N
+- :: $sub-binop
+
+* :: (N:Num. N) ;; N
+* :: $mul-binop
+
+/ :: (N:Num. N) ;; (N, ())
+(x. 0) / :: ()
+/ :: $div-binop
+
+% :: (N:Num. N) ;; N
+% :: $mod-binop
+
+
+>  :: (N:Num. N) ;; Bl
+>  :: $gtr-binop
+
+<  :: (N:Num. N) ;; Bl
+<  :: $lss-binop
+
+>= :: (N:Num. N) ;; Bl
+>= :: $geq-binop
+
+=< :: (N:Num. N) ;; Bl
+=< :: $leq-binop
+
+=  :: (N:Num. N) ;; Bl
+=  :: $eql-binop
+
+!= :: (N:Num. N) ;; Bl
+!= :: $neq-binop
+
+!! :: Bl ;; Bl
+(True ) !! :: False
+(False) !! :: True
+
+&& :: (Bl. Bl) ;; Bl
+(True. True) && :: True
+(x.    y   ) && :: False
+
+|| :: (Bl. Bl) ;; Bl
+(False. False) || :: False
+(x.     y    ) || :: True
+
+? :: (Bl. A. B) ;; (A, B)
+(True.  x. _) ? :: x
+(False. _. y) ? :: y
+
+!? :: (Bl. A. B) ;; (A, B)
+(True.  _. y) !? :: y
+(False. x. _) !? :: x
+
+(T) Maybe :: (T Just, Nothing)
+
+(A. B) Either :: (A Left, B Right)
+
+len :: []T ;; I64
+len :: $arrLength
+
+->  :: ([]T. T) ;; (T Maybe)
+->  :: $getIndex
+
+=>  :: ([]T. T. I64) ;; []T
+=>  :: $setIndex
+
+
+
+
+
+
+
+
+
+
+map :: ([]A. (A ;; B)) ;; []B
+map :: $map
+
+fold :: ([]A. ((A. A) ;; A)) ;; A
+fold :: $fold
+
+reduce :: ([]A. B. ((A. B) ;; B)) ;; B
+reduce :: $reduce
+
+scan :: ([]A. ((A. A) ;; A)) ;; []A
+scan :: $scan
+
+chain :: ([]A. B. ((A. B) ;; B)) ;; []B
+chain :: $chain
+
+zip :: ([]A. []B) ;; [](A. B)
+zip :: ([]A. []B. []C) ;; [](A. B. C)
+zip :: ([]A. []B. []C. []D) ;; [](A. B. D)
+zip :: $zip
+
+# :: (A. ((A. B) ;; C)) ;; (B ;; C)
+(x. f) # :: ;y :: (x. y) f
+
+
+
+
+
+
+
+
+
+
+(x) +1 :: (x. 1)+
+(x) -1 :: (x. 1)-
+(x) +2 :: (x. 2)+
+(x) +2 :: (x. 2)-
+(x) *2 :: (x. 1)>>
+(x) /2 :: (x. 1)<<
+(x) *3 :: (x. x *2)+ 
+(x) /3 :: (x. 3)/
+(x) %2 :: (x. 2)%
+(x) %3 :: (x. 3)%
+(x) ^2 :: (x. x)*
+(x) ^3 :: (x. x ^2)*
+
+
+
+
+
+
