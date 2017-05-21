@@ -1,0 +1,37 @@
+StdIO $Module
+Std   $link
+
+
+
+
+
+
+
+
+
+
+IO :: $Unique $Effect
+
+
+
+
+
+
+
+
+
+
+print :: (IO. String) ;; IO
+print :: $print
+
+
+
+
+
+
+
+
+
+
+
+
