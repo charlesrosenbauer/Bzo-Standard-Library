@@ -1,0 +1,45 @@
+String $Module
+
+
+
+
+
+
+
+
+
+
+Char :: $Char
+Str  :: []Char
+
+
+
+
+
+
+
+
+
+
+++ :: (Str. Str) ;; Str
+++ :: $append-string
+
+toUppercase :: Chr ;; Chr
+toUppercase :: $to-uppercase
+
+toLowercase :: Chr ;; Chr
+toLowercase :: $to-lowercase
+
+strUppercase :: Str ;; Str
+strUppercase :: toUppercase..
+
+strLowercase :: Str ;; Str
+strLowercase :: toLowercase..
+
+isPrefix :: (Str. Str) ;; Bl
+isPrefix :: $isPrefix
+
+isSuffix :: (Str. Str) ;; Bl
+isSuffix :: $isSuffix
+
+
