@@ -1,0 +1,76 @@
+Bits $Module
+
+
+
+
+
+
+
+
+
+
+B8   :: $byte
+B16  :: $half
+B32  :: $word
+B64  :: $dword
+Bits :: (B8, B16, B32, B64)
+
+
+
+
+
+
+
+
+
+
+and :: (T:Bits. T) ;; T
+and :: $and-binop
+
+or  :: (T:Bits. T) ;; T
+or  :: $or-binop
+
+xor :: (T:Bits. T) ;; T
+xor :: $xor-binop
+
+not :: (T:Bits) ;; T
+not :: $not-op
+
+>>  :: (T:Bits. I64) ;; T
+>>  :: $rshift-binop
+
+<<  :: (T:Bits. I64) ;; T
+<<  :: $lshift-binop
+
+clz :: Bits ;; I64
+clz :: $ctlz-op
+
+ctz :: Bits ;; I64
+ctz :: $cttz-op
+
+pct :: Bits ;; I64
+pct :: $popcount-op
+
+
+
+
+
+
+
+
+
+
+toInt  :: Bits ;; Int
+toInt  :: $toInt
+
+toUnt  :: Bits ;; Unt
+toUnt  :: $toUnt
+
+toFlt  :: (B16, B32, B64) ;; Flt
+toFlt  :: $toFlt
+
+toUnm  :: (B16, B32, B64) ;; Unm
+toUnm  :: $toUnm
+
+toBits :: Num ;; Bits
+toBits :: $toBits
