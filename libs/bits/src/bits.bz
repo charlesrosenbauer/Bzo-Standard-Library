@@ -9,10 +9,10 @@ Bits $Module
 
 
 
-B8   :: $byte
-B16  :: $half
-B32  :: $word
-B64  :: $dword
+B8   :: $Byte
+B16  :: $Half
+B32  :: $Word
+B64  :: $Dword
 Bits :: (B8, B16, B32, B64)
 
 

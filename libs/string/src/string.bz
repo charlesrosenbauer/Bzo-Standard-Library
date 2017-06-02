@@ -9,8 +9,10 @@ String $Module
 
 
 
-Char :: $Char
-Str  :: []Char
+Char :: $Char       "UTF Character"
+Str  :: []Char      "UTF String"
+ASCII:: $ASCII      "ASCII Character"
+AStr :: []ASCII     "ASCII String"
 
 
 
@@ -22,7 +24,7 @@ Str  :: []Char
 
 
 ++ :: (Str. Str) ;; Str
-++ :: $append-string
+++ :: $append-array
 
 toUppercase :: Chr ;; Chr
 toUppercase :: $to-uppercase
