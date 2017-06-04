@@ -103,15 +103,6 @@ Bl :: (True, False) $BoolTF
 
 (A. B) Either :: (A Left, B Right)
 
-len :: []T ;; I64
-len :: $arrLength
-
-->  :: ([]T. T) ;; (T Maybe)
-->  :: $getIndex
-
-=>  :: ([]T. T. I64) ;; []T
-=>  :: $setIndex
-
 
 
 
