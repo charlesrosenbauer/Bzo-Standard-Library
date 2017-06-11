@@ -10,67 +10,67 @@ Std  $link
 
 
 
-^ :: (N:Num. N) ;; N
+^ :: (N':Num. N') ;; N'
 ^ :: $exp-binop
 
-\ :: (R:Real. R) ;; R
+\ :: (R':Real. R') ;; R'
 \ :: $surd-binop
 
-lg :: (R:Real. R) ;; R
+lg :: (R':Real. R') ;; R'
 lg :: $log-binop
 
-ln :: (R:Real) ;; R
+ln :: (R':Real) ;; R'
 ln :: $ln-op
 
-sin :: (R:Real) ;; R
+sin :: (R':Real) ;; R'
 sin :: $sine
 
-cos :: (R:Real) ;; R
+cos :: (R':Real) ;; R'
 cos :: $cosine
 
-tan :: (R:Real) ;; R
+tan :: (R':Real) ;; R'
 tan :: $tangent
 
-asin :: (R:Real) ;; R
+asin :: (R':Real) ;; R'
 asin :: $arcsine
 
-acos :: (R:Real) ;; R
+acos :: (R':Real) ;; R'
 acos :: $arccosine
 
-atan :: (R:Real) ;; R
+atan :: (R':Real) ;; R'
 atan :: $arctangent
 
-sinh :: (R:Real) ;; R
+sinh :: (R':Real) ;; R'
 sinh :: $hsine
 
-cosh :: (R:Real) ;; R
+cosh :: (R':Real) ;; R'
 cosh :: $hcosine
 
-tanh :: (R:Real) ;; R
+tanh :: (R':Real) ;; R'
 tanh :: $htangent
 
-asinh :: (R:Real) ;; R
+asinh :: (R':Real) ;; R'
 asinh :: $arc-hsine
 
-acosh :: (R:Real) ;; R
+acosh :: (R':Real) ;; R'
 acosh :: $arc-hcosine
 
-atanh :: (R:Real) ;; R
+atanh :: (R':Real) ;; R'
 atanh :: $arc-htangent
 
-floor :: (R:Real) ;; R
+floor :: (R':Real) ;; R'
 floor :: $floor
 
-ciel  :: (R:Real) ;; R
+ciel  :: (R':Real) ;; R'
 ciel  :: $ciel
 
-round :: (R:Real) ;; R
+round :: (R':Real) ;; R'
 round :: $round
 
-! :: (D:Discrete) ;; D
+! :: (D':Discrete) ;; D'
 ! :: $factorial
 
-gamma :: (R:Real) ;; R
+gamma :: (R':Real) ;; R'
 gamma :: $gamma
 
 gamma Γ
@@ -90,28 +90,28 @@ pi π
 
 
 
-sum :: ([]N:Num) ;; N
+sum :: ([]N':Num) ;; N'
 (xs) sum :: (xs. 0. +) reduce       "optimized to parallel if + is associative"
 
-prod :: ([]N:Num) ;; N
+prod :: ([]N':Num) ;; N'
 (xs) prod :: (xs. 1. *) reduce      "optimized to parallel if * is associative"
 
-mean :: ([]N:Num) ;; N
+mean :: ([]N':Num) ;; N'
 (xs) mean :: xs sum (xs len. /)#
 
-geomean :: ([]N:Num) ;; N
+geomean :: ([]N':Num) ;; N'
 (xs) geomean :: xs prod (xs len. \)#
 
-stdDev :: ([]N:Num) ;; (N. N)       "(Std Dev . Average)"
+stdDev :: ([]N':Num) ;; (N'. N')       "(Std Dev . Average)"
 (xs) stdDev (dev. avg) :: {
     xs mean avg
     (xs. (avg. -)#) map mean dev
 }
 
-nCr :: (N:Num. N) ;; N
+nCr :: (N':Num. N') ;; N'
 nCr :: $nCr
 
-nPr :: (N:Num. N) ;; N
+nPr :: (N':Num. N') ;; N'
 nPr :: $nPr
 
 

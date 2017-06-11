@@ -9,13 +9,13 @@ Array $Module
 
 
 
-len :: []T ;; I64
+len :: []T' ;; I64
 len :: $arrLength
 
-->  :: ([]T. I64) ;; (T Maybe)
+->  :: ([]T'. I64) ;; (T' Maybe)
 ->  :: $getIndex
 
-=>  :: ([]T. T. I64) ;; []T
+=>  :: ([]T'. T'. I64) ;; []T'
 =>  :: $setIndex
 
 
@@ -27,8 +27,8 @@ len :: $arrLength
 
 
 
-(T) Slice :: (
-    arr    :: []T.
+(T') Slice :: (
+    arr    :: []T'.
     start  :: I64.
     end    :: I64.
     stride :: I64.

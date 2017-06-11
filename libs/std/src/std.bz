@@ -44,39 +44,39 @@ Discrete :: (Int, Unt)
 Bl :: (True, False) $BoolTF
 
 
-+ :: (N:Num. N) ;; N
++ :: (N':Num. N') ;; N'
 + :: $add-binop
 
-- :: (N:Num. N) ;; N
+- :: (N':Num. N') ;; N'
 - :: $sub-binop
 
-* :: (N:Num. N) ;; N
+* :: (N':Num. N') ;; N'
 * :: $mul-binop
 
-/ :: (N:Num. N) ;; (N, ())
+/ :: (N':Num. N') ;; (N', ())
 (x. 0) / :: ()
 / :: $div-binop
 
-% :: (N:Num. N) ;; N
+% :: (N':Num. N') ;; N'
 % :: $mod-binop
 
 
->  :: (N:Num. N) ;; Bl
+>  :: (N':Num. N') ;; Bl
 >  :: $gtr-binop
 
-<  :: (N:Num. N) ;; Bl
+<  :: (N':Num. N') ;; Bl
 <  :: $lss-binop
 
->= :: (N:Num. N) ;; Bl
+>= :: (N':Num. N') ;; Bl
 >= :: $geq-binop
 
-=< :: (N:Num. N) ;; Bl
+=< :: (N':Num. N') ;; Bl
 =< :: $leq-binop
 
-=  :: (N:Num. N) ;; Bl
+=  :: (N':Num. N') ;; Bl
 =  :: $eql-binop
 
-!= :: (N:Num. N) ;; Bl
+!= :: (N':Num. N') ;; Bl
 != :: $neq-binop
 
 !! :: Bl ;; Bl
@@ -99,11 +99,9 @@ Bl :: (True, False) $BoolTF
 (True.  _. y) !? :: y
 (False. x. _) !? :: x
 
-(T) Maybe :: (T Just, Nothing)
+(T') Maybe :: (Just:T', Nothing:())
 
-(A. B) Either :: (A Left, B Right)
-
-
+(A'. B') Either :: (Left:A', Right:B')
 
 
 
@@ -112,24 +110,26 @@ Bl :: (True, False) $BoolTF
 
 
 
-map :: ([]A. (A ;; B)) ;; []B
+
+
+map :: ([]A'. (A' ;; B')) ;; []B'
 map :: $map
 
-fold :: ([]A. ((A. A) ;; A)) ;; A
+fold :: ([]A'. ((A'. A') ;; A')) ;; A'
 fold :: $fold
 
-reduce :: ([]A. B. ((A. B) ;; B)) ;; B
+reduce :: ([]A'. B'. ((A'. B') ;; B')) ;; B'
 reduce :: $reduce
 
-scan :: ([]A. ((A. A) ;; A)) ;; []A
+scan :: ([]A'. ((A'. A') ;; A')) ;; []A'
 scan :: $scan
 
-chain :: ([]A. B. ((A. B) ;; B)) ;; []B
+chain :: ([]A'. B'. ((A'. B') ;; B')) ;; []B'
 chain :: $chain
 
-zip :: ([]A. []B) ;; [](A. B)
-zip :: ([]A. []B. []C) ;; [](A. B. C)
-zip :: ([]A. []B. []C. []D) ;; [](A. B. D)
+zip :: ([]A'. []B') ;; [](A'. B')
+zip :: ([]A'. []B'. []C') ;; [](A'. B'. C')
+zip :: ([]A'. []B'. []C'. []D') ;; [](A'. B'. D')
 zip :: $zip
 
 
