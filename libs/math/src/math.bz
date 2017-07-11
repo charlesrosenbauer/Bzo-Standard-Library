@@ -91,22 +91,21 @@ pi π
 
 
 sum :: ([]N':Num) ;; N'
-(xs) sum :: (xs. 0. +) reduce       "optimized to parallel if + is associative"
+sum :: 0`+`reduce           "optimized to parallel if + is associative"
 
 prod :: ([]N':Num) ;; N'
-(xs) prod :: (xs. 1. *) reduce      "optimized to parallel if * is associative"
+prod :: 1`*`reduce          "optimized to parallel if * is associative"
 
 mean :: ([]N':Num) ;; N'
-(xs) mean :: xs sum (xs len. /)#
+(xs) mean :: xs sum (xs len)`//
 
 geomean :: ([]N':Num) ;; N'
-(xs) geomean :: xs prod (xs len. \)#
+(xs) geomean :: xs prod (xs len)`\
 
 stdDev :: ([]N':Num) ;; (N'. N')       "(Std Dev . Average)"
 (xs) stdDev (dev. avg) :: {
     xs mean avg
-    (xs. (avg. -)#) map mean dev
-}
+    xs (avg`-).. mean dev }
 
 nCr :: (N':Num. N') ;; N'
 nCr :: $nCr
@@ -126,4 +125,3 @@ nPr :: $nPr
 (x) \3  :: $cbrt
 (x) l2  :: $log2
 (x) l10 :: $log10
-
