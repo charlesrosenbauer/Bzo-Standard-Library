@@ -73,15 +73,13 @@ round :: $round
 gamma :: (R':Real) ;; R'
 gamma :: $gamma
 
-gamma Γ
+gamma :: Γ
 
-(!, Γ) factorial
+factorial :: (!, Γ)
 
-3.14159265358979323846 pi
-pi π
-2.71828182845904523536 e
-
-
+pi :: 3.14159265358979323846
+π :: pi
+e :: 2.71828182845904523536
 
 
 
@@ -90,19 +88,21 @@ pi π
 
 
 
-sum :: ([]N':Num) ;; N'
+
+
+sum :: [](N':Num) ;; N'
 sum :: 0`+`reduce           "optimized to parallel if + is associative"
 
-prod :: ([]N':Num) ;; N'
+prod :: [](N':Num) ;; N'
 prod :: 1`*`reduce          "optimized to parallel if * is associative"
 
-mean :: ([]N':Num) ;; N'
+mean :: [](N':Num) ;; N'
 (xs) mean :: xs sum (xs len)`//
 
-geomean :: ([]N':Num) ;; N'
+geomean :: [](N':Num) ;; N'
 (xs) geomean :: xs prod (xs len)`\
 
-stdDev :: ([]N':Num) ;; (N'. N')       "(Std Dev . Average)"
+stdDev :: [](N':Num) ;; (N'. N')       "(Std Dev . Average)"
 (xs) stdDev (dev. avg) :: {
     xs mean avg
     xs (avg`-).. mean dev }
