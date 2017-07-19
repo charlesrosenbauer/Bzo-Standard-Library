@@ -114,6 +114,23 @@ nPr :: (N':Num. N') ;; N'
 nPr :: $nPr
 
 
+%+ :: (N:Num. N. N) ;; N
+(a. b. c) %+ :: (a. b) + c`%
+
+%- :: (N:Num. N. N) ;; N
+(a. b. c) %- :: (a. b) - c`%
+
+%* :: (N:Num. N. N) ;; N
+(a. b. c) %* :: (a. b) * c`%
+
+%/ :: (N:Num. N. N) ;; N
+(a. b. c) %/ :: (a. b) / c`%
+
+%^- :: (N:Num. N. N) ;; N
+(a. b. c) %^ :: (a. b) ^ c`%
+
+
+
 
 
 
