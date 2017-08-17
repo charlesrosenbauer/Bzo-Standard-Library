@@ -28,11 +28,11 @@ len :: $arrLength
 
 
 (T') Slice :: (
-    arr    :: []T'.
-    start  :: I64.
-    end    :: I64.
-    stride :: I64.
-    group  :: I64 )
+    arr    : []T'.
+    start  : I64.
+    end    : I64.
+    stride : I64.
+    group  : I64 )
 
 
 
@@ -48,5 +48,3 @@ len :: $arrLength
 
 => :: (T Slice. T. I64) ;; (T Slice)
 (s. x. i) => :: "Work Out Later"
-
-
