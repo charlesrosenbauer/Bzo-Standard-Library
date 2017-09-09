@@ -138,7 +138,7 @@ nPr :: $nPr
 
 
 
-(x) \2  :: $sqrt
-(x) \3  :: $cbrt
-(x) l2  :: $log2
-(x) l10 :: $log10
+\2  :: $sqrt
+\3  :: $cbrt
+l2  :: $log2
+l10 :: $log10

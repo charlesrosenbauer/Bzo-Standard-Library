@@ -10,4 +10,34 @@ HigherOrder $Module
 map :: ([]A'. (A' ;; B')) ;; []B'
 map :: $map
 
+"parallel reduce"
+fold :: ([]A'. ((A'. A') ;; A')) ;; A'
+fold :: $fold
 
+"sequential reduce"
+reduce :: ([]A'. B'. ((B'. A') ;; B')) ;; B'
+reduce :: $reduce
+
+"parallel scan"
+scan :: ([]A'. ((A'. A') ;; A')) ;; []A'
+scan :: $scan
+
+"sequential scan"
+chain :: ([]A'. B'. ((B'. A') ;; B')) ;; B'
+chain :: $chain
+
+"overloaded implementations for zip2, zip3, and zip4"
+zip :: ([]A'. []B') ;; [](A'. B')
+zip :: ([]A'. []B'. []C') ;; [](A'. B'. C')
+zip :: ([]A'. []B'. []C'. []D') ;; [](A'. B'. C'. D')
+zip :: $zip
+
+"overloaded implementations for zip2, zip3, and zip4"
+unzip :: [](A'. B') ;; ([]A'. []B')
+unzip :: [](A'. B'. C') ;; ([]A'. []B'. []C')
+unzip :: [](A'. B'. C'. D') ;; ([]A'. []B'. []C'. []D')
+unzip :: $unzip
+
+"function composition"
+>> :: ((B' ;; C'). (A' ;; B')) ;; (A' ;; C')
+(g. f) >> :: f g

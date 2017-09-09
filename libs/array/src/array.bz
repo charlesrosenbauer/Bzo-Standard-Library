@@ -43,8 +43,8 @@ len :: $arrLength
 
 
 
--> :: (T Slice. I64) ;; (T Maybe)
+-> :: (T' Slice. I64) ;; (T' Maybe)
 (s. i) -> :: "Work Out Later"
 
-=> :: (T Slice. T. I64) ;; (T Slice)
+=> :: (T' Slice. T'. I64) ;; (T' Slice)
 (s. x. i) => :: "Work Out Later"
