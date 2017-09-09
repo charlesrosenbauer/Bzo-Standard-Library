@@ -1,0 +1,13 @@
+HigherOrder $Module
+
+
+
+
+
+
+
+
+map :: ([]A'. (A' ;; B')) ;; []B'
+map :: $map
+
+
