@@ -72,13 +72,18 @@ round :: $round
 
 gamma :: (R':Real) ;; R'
 gamma :: $gamma
-
 gamma :: Γ
 
+factorial :: (N':Num) ;; N'
 factorial :: (!, Γ)
 
+pi :: () ;; F64
 pi :: 3.14159265358979323846
+
+π :: () ;; F64
 π :: pi
+
+e :: () ;; F64
 e :: 2.71828182845904523536
 
 
@@ -126,7 +131,7 @@ nPr :: $nPr
 %/ :: (N':Num. N'. N') ;; N'
 (a. b. c) %/ :: (a. b) / c`%
 
-%^- :: (N':Num. N'. N') ;; N'
+%^ :: (N':Num. N'. N') ;; N'
 (a. b. c) %^ :: (a. b) ^ c`%
 
 
@@ -138,7 +143,18 @@ nPr :: $nPr
 
 
 
+\2  :: (R':Real) ;; R'
 \2  :: $sqrt
+
+\3  :: (R':Real) ;; R'
 \3  :: $cbrt
+
+l2  :: (R':Real) ;; R'
 l2  :: $log2
+
+l10  :: (R':Real) ;; R'
 l10 :: $log10
+
+
+Vec2 :: (x:F32. y:F32)
+Vec3 :: (x:F32. y:F32. z:F32)
