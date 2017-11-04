@@ -147,3 +147,7 @@ Bl :: (True, False) $BoolTF
 
 ^3 :: (N':Num) ;; N'
 (x) ^3 :: (x. x ^2)*
+
+
+fail! :: $fail!
+

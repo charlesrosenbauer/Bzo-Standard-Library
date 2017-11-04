@@ -1,0 +1,29 @@
+Types $Module
+
+
+
+
+
+
+
+
+
+
+(A'. B') Either :: (Left:A', Right:B')
+
+isLeft :: ((A'. B') Either) ;; Bool
+(Left)  isLeft :: True
+(Right) isLeft :: False
+
+isRight :: ((A'. B') Either) ;; Bool
+isRight :: isLeft not
+
+fromLeft! :: ((A'. B') Either) ;; A'
+(x:Left) fromLeft! :: x
+_        fromLeft! :: fail!
+
+fromRight! :: ((A'. B') Either) ;; A'
+(x:Right) fromRight! :: x
+_         fromRight! :: fail!
+
+
