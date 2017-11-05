@@ -149,4 +149,5 @@ Bl :: (True, False) $BoolTF
 (x) ^3 :: (x. x ^2)*
 
 
+fail! :: () ;; $Any
 fail! :: $fail!

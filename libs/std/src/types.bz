@@ -18,11 +18,11 @@ isRight :: isLeft !!
 
 fromLeft! :: ((A'. B') Either) ;; A'
 (x:Left) fromLeft! :: x
-_        fromLeft! :: fail!
+(_)      fromLeft! :: fail!
 
 fromRight! :: ((A'. B') Either) ;; A'
 (x:Right) fromRight! :: x
-_         fromRight! :: fail!
+(_)       fromRight! :: fail!
 
 
 
@@ -35,14 +35,14 @@ _         fromRight! :: fail!
 
 isJust :: ((A') Maybe) ;; Bool
 (Just) isJust :: True
-_      isJust :: False
+(_)    isJust :: False
 
 isNothing :: ((A') Maybe) ;; Bool
 isNothing :: isJust !!
 
 fromJust! :: ((A') Maybe) ;; A'
 (x:Just) fromJust! :: x
-_        fromJust! :: fail!
+(_)      fromJust! :: fail!
 
 fromMaybe :: (A'. (A') Maybe) ;; A'
 (x. y:Just) fromMaybe :: y
