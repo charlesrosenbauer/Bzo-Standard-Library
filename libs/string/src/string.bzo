@@ -23,6 +23,19 @@ AStr :: []ASCII     "ASCII String"
 
 
 
+Showable :: {
+  show :: S':Showable ;; Str
+}
+
+
+
+
+
+
+
+
+
+
 ++ :: (Str. Str) ;; Str
 ++ :: $append-array
 
@@ -43,5 +56,3 @@ isPrefix :: $isPrefix
 
 isSuffix :: (Str. Str) ;; Bl
 isSuffix :: $isSuffix
-
-

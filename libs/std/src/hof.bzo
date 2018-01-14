@@ -42,3 +42,29 @@ unzip :: $unzip
 "function composition"
 >> :: ((B' ;; C'). (A' ;; B')) ;; (A' ;; C')
 (g. f) >> :: f g
+
+
+
+
+
+
+
+
+
+(A') Functor (F') :: {
+  map :: (A' F'. A' ;; B') ;; B' F'
+}
+
+(A') Foldable (F') :: {
+  fold :: (A' F'. (A'. A') ;; A') ;; A'
+}
+
+(A') Reduceable (R') :: {
+  reduce :: (A' R'. B'. (B'. A') ;; B') ;; B'
+}
+
+mapreduce :: (A' C':(Functor, Reduceable). A' ;; B'. C'. (C'. B') ;; C') ;; C'
+(objs. mapfn. init. redfn) mapreduce :: objs mapfn.. (init`redfn`reduce)
+
+mapfold :: (A' C':(Functor, Reduceable). A' ;; B'. (B'. B') ;; B') ;; B'
+(objs. mapfn. fldfn) mapfold :: objs mapfn.. (fldfn`fold)
