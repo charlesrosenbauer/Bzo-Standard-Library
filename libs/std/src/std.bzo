@@ -41,42 +41,44 @@ Real :: (Flt, Unm)
 
 Discrete :: (Int, Unt)
 
-Bl :: (True, False) $BoolTF
+Bl :: (True:(), False:()) $BoolTF
+
+Any :: $Any
 
 
-+ :: (N':Num. N') ;; N'
+(N':Num) + :: (N'. N') ;; N'
 + :: $add-binop
 
-- :: (N':Num. N') ;; N'
+(N':Num) - :: (N'. N') ;; N'
 - :: $sub-binop
 
-* :: (N':Num. N') ;; N'
+(N':Num) * :: (N'. N') ;; N'
 * :: $mul-binop
 
-/ :: (N':Num. N') ;; (N', ())
+(N':Num) / :: (N'. N') ;; (N', ())
 (x. 0) / :: ()
 / :: $div-binop
 
-% :: (N':Num. N') ;; N'
+(N':Num) % :: (N'. N') ;; N'
 % :: $mod-binop
 
 
->  :: (N':Num. N') ;; Bl
+(N':Num) >  :: (N'. N') ;; Bl
 >  :: $gtr-binop
 
-<  :: (N':Num. N') ;; Bl
+(N':Num) <  :: (N'. N') ;; Bl
 <  :: $lss-binop
 
->= :: (N':Num. N') ;; Bl
+(N':Num) >= :: (N'. N') ;; Bl
 >= :: $geq-binop
 
-=< :: (N':Num. N') ;; Bl
+(N':Num) =< :: (N'. N') ;; Bl
 =< :: $leq-binop
 
-=  :: (N':Num. N') ;; Bl
+(N':Num) =  :: (N'. N') ;; Bl
 =  :: $eql-binop
 
-!= :: (N':Num. N') ;; Bl
+(N':Num) != :: (N'. N') ;; Bl
 != :: $neq-binop
 
 !! :: Bl ;; Bl
@@ -91,11 +93,11 @@ Bl :: (True, False) $BoolTF
 (False. False) || :: False
 (x.     y    ) || :: True
 
-? :: (Bl. A. B) ;; (A, B)
+? :: (Bl. A'. B') ;; (A', B')
 (True.  x. _) ? :: x
 (False. _. y) ? :: y
 
-!? :: (Bl. A. B) ;; (A, B)
+!? :: (Bl. A'. B') ;; (A', B')
 (True.  _. y) !? :: y
 (False. x. _) !? :: x
 
@@ -112,42 +114,36 @@ Bl :: (True, False) $BoolTF
 
 
 
-+1 :: (N':Num) ;; N'
-+1 :: 1`+
+(N':Num) inc :: N' ;; N'
+inc :: 1`+
 
--1 :: (N':Num) ;; N'
--1 :: 1`-
+(N':Num) dec :: N' ;; N'
+dec :: 1`-
 
-+2 :: (N':Num) ;; N'
-+2 :: 2`+
-
--2 :: (N':Num) ;; N'
--2 :: 2`-
-
-*2 :: (N':Num) ;; N'
+(N':Num) *2 :: N' ;; N'
 *2 :: 2`*
 
-/2 :: (N':Num) ;; N'
+(N':Num) /2 :: N' ;; N'
 /2 :: 2`*
 
-*3 :: (N':Num) ;; N'
+(N':Num) *3 :: N' ;; N'
 (x) *3 :: (x. x *2)+
 
-/3 :: (N':Num) ;; N'
+(N':Num) /3 :: N' ;; N'
 /3 :: 3`/
 
-%2 :: (N':Num) ;; N'
+(N':Num) %2 :: N' ;; N'
 %2 :: 2`%
 
-%3 :: (N':Num) ;; N'
+(N':Num) %3 :: N' ;; N'
 %3 :: 3`%
 
-^2 :: (N':Num) ;; N'
+(N':Num) ^2 :: N' ;; N'
 (x) ^2 :: (x. x)*
 
-^3 :: (N':Num) ;; N'
+(N':Num) ^3 :: N' ;; N'
 (x) ^3 :: (x. x ^2)*
 
 
-fail! :: () ;; $Any
+fail! :: () ;; Any
 fail! :: $fail!

@@ -1,5 +1,5 @@
 HigherOrder $Module
-Std         $import
+Std         $Include
 
 
 
@@ -51,20 +51,20 @@ unzip :: $unzip
 
 
 
-(A') Functor (F') :: {
-  map :: (A' F'. A' ;; B') ;; B' F'
+(A') Functor :: {
+  (F':Functor) map :: (A' F'. A' ;; B') ;; B' F'
 }
 
-(A') Foldable (F') :: {
-  fold :: (A' F'. (A'. A') ;; A') ;; A'
+(A') Foldable :: {
+  (F':Foldable) fold :: (A' F'. (A'. A') ;; A') ;; A'
 }
 
-(A') Reduceable (R') :: {
-  reduce :: (A' R'. B'. (B'. A') ;; B') ;; B'
+(A') Reduceable :: {
+  (R':Reduceable) reduce :: (A' R'. B'. (B'. A') ;; B') ;; B'
 }
 
-mapreduce :: (A' C':(Functor, Reduceable). A' ;; B'. C'. (C'. B') ;; C') ;; C'
+(C':(Functor, Reduceable)) mapreduce :: (A' C'. A' ;; B'. C'. (C'. B') ;; C') ;; C'
 (objs. mapfn. init. redfn) mapreduce :: objs mapfn.. (init`redfn`reduce)
 
-mapfold :: (A' C':(Functor, Reduceable). A' ;; B'. (B'. B') ;; B') ;; B'
+(C':(Functor, Reduceable)) mapfold :: (A' C'. A' ;; B'. (B'. B') ;; B') ;; B'
 (objs. mapfn. fldfn) mapfold :: objs mapfn.. (fldfn`fold)

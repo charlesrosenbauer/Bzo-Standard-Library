@@ -24,7 +24,7 @@ AStr :: []ASCII     "ASCII String"
 
 
 Showable :: {
-  show :: S':Showable ;; Str
+  (S':Showable) show :: S' ;; Str
 }
 
 

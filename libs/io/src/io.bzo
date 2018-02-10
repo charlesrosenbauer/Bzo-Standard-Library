@@ -1,5 +1,5 @@
 StdIO $Module
-Std   $link
+Std   $Import
 
 
 
@@ -22,16 +22,6 @@ IO :: $Unique $Effect
 
 
 print :: (IO. String) ;; IO
-print :: $print
-
-
-
-
-
-
-
-
-
-
-
-
+(~io. str) print :: {
+  str $print
+  ~io }

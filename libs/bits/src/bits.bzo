@@ -24,22 +24,22 @@ Bits :: (B8, B16, B32, B64)
 
 
 
-and :: (T':Bits. T') ;; T'
+(T':Bits) and :: (T' T') ;; T'
 and :: $and-binop
 
-or  :: (T':Bits. T') ;; T'
+(T':Bits) or  :: (T'. T') ;; T'
 or  :: $or-binop
 
-xor :: (T':Bits. T') ;; T'
+(T':Bits) xor :: (T'. T') ;; T'
 xor :: $xor-binop
 
-not :: (T':Bits) ;; T'
+(T':Bits) not :: T' ;; T'
 not :: $not-op
 
->>  :: (T':Bits. I64) ;; T'
+(T':Bits) >>  :: (T'. I64) ;; T'
 >>  :: $rshift-binop
 
-<<  :: (T':Bits. I64) ;; T'
+(T':Bits) <<  :: (T'. I64) ;; T'
 <<  :: $lshift-binop
 
 clz :: Bits ;; I64
