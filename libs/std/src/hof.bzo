@@ -29,13 +29,21 @@ chain :: $chain
 
 "overloaded implementations for zip2, zip3, and zip4"
 zip :: ([]A'. []B') ;; [](A'. B')
+zip :: $zip
+
 zip :: ([]A'. []B'. []C') ;; [](A'. B'. C')
+zip :: $zip
+
 zip :: ([]A'. []B'. []C'. []D') ;; [](A'. B'. C'. D')
 zip :: $zip
 
 "overloaded implementations for zip2, zip3, and zip4"
 unzip :: [](A'. B') ;; ([]A'. []B')
+unzip :: $unzip
+
 unzip :: [](A'. B'. C') ;; ([]A'. []B'. []C')
+unzip :: $unzip
+
 unzip :: [](A'. B'. C'. D') ;; ([]A'. []B'. []C'. []D')
 unzip :: $unzip
 
