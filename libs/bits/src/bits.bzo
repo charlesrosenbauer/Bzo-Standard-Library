@@ -1,4 +1,4 @@
-Bits $Module
+Bits #Module
 
 
 
@@ -9,10 +9,10 @@ Bits $Module
 
 
 
-B8   :: $Byte
-B16  :: $Half
-B32  :: $Word
-B64  :: $Dword
+B8   :: #Byte
+B16  :: #Half
+B32  :: #Word
+B64  :: #Dword
 Bits :: (B8, B16, B32, B64)
 
 
@@ -25,31 +25,31 @@ Bits :: (B8, B16, B32, B64)
 
 
 (T':Bits) and :: (T' T') ;; T'
-and :: $and-binop
+and :: #and-binop
 
 (T':Bits) or  :: (T'. T') ;; T'
-or  :: $or-binop
+or  :: #or-binop
 
 (T':Bits) xor :: (T'. T') ;; T'
-xor :: $xor-binop
+xor :: #xor-binop
 
 (T':Bits) not :: T' ;; T'
-not :: $not-op
+not :: #not-op
 
 (T':Bits) >>  :: (T'. I64) ;; T'
->>  :: $rshift-binop
+>>  :: #rshift-binop
 
 (T':Bits) <<  :: (T'. I64) ;; T'
-<<  :: $lshift-binop
+<<  :: #lshift-binop
 
 clz :: Bits ;; I64
-clz :: $ctlz-op
+clz :: #ctlz-op
 
 ctz :: Bits ;; I64
-ctz :: $cttz-op
+ctz :: #cttz-op
 
 pct :: Bits ;; I64
-pct :: $popcount-op
+pct :: #popcount-op
 
 
 
@@ -61,16 +61,16 @@ pct :: $popcount-op
 
 
 toInt  :: Bits ;; Int
-toInt  :: $toInt
+toInt  :: #toInt
 
 toUnt  :: Bits ;; Unt
-toUnt  :: $toUnt
+toUnt  :: #toUnt
 
 toFlt  :: (B16, B32, B64) ;; Flt
-toFlt  :: $toFlt
+toFlt  :: #toFlt
 
 toUnm  :: (B16, B32, B64) ;; Unm
-toUnm  :: $toUnm
+toUnm  :: #toUnm
 
 toBits :: Num ;; Bits
-toBits :: $toBits
+toBits :: #toBits

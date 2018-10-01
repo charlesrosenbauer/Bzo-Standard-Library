@@ -1,4 +1,4 @@
-Array $Module
+Array #Module
 
 
 
@@ -10,13 +10,13 @@ Array $Module
 
 
 len :: []T' ;; I64
-len :: $arrLength
+len :: #arrLength
 
 ->  :: ([]T'. I64) ;; T' Maybe
-->  :: $getIndex
+->  :: #getIndex
 
 =>  :: ([]T'. T'. I64) ;; []T'
-=>  :: $setIndex
+=>  :: #setIndex
 
 
 

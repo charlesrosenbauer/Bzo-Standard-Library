@@ -1,4 +1,4 @@
-String $Module
+String #Module
 
 
 
@@ -9,9 +9,9 @@ String $Module
 
 
 
-Char :: $Char       "UTF Character"
+Char :: #Char       "UTF Character"
 Str  :: []Char      "UTF String"
-ASCII:: $ASCII      "ASCII Character"
+ASCII:: #ASCII      "ASCII Character"
 AStr :: []ASCII     "ASCII String"
 
 
@@ -37,13 +37,13 @@ Showable :: {
 
 
 ++ :: (Str. Str) ;; Str
-++ :: $append-array
+++ :: #append-array
 
 toUppercase :: Chr ;; Chr
-toUppercase :: $to-uppercase
+toUppercase :: #to-uppercase
 
 toLowercase :: Chr ;; Chr
-toLowercase :: $to-lowercase
+toLowercase :: #to-lowercase
 
 strUppercase :: Str ;; Str
 strUppercase :: toUppercase..
@@ -52,7 +52,7 @@ strLowercase :: Str ;; Str
 strLowercase :: toLowercase..
 
 isPrefix :: (Str. Str) ;; Bl
-isPrefix :: $isPrefix
+isPrefix :: #isPrefix
 
 isSuffix :: (Str. Str) ;; Bl
-isSuffix :: $isSuffix
+isSuffix :: #isSuffix

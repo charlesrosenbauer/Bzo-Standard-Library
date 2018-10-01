@@ -1,5 +1,5 @@
-StdIO $Module
-Std   $Import
+StdIO #Module
+Std   #Import
 
 
 
@@ -10,7 +10,7 @@ Std   $Import
 
 
 
-IO :: $Unique $Effect
+IO :: #Unique #Effect
 
 
 
@@ -23,5 +23,5 @@ IO :: $Unique $Effect
 
 print :: (IO. String) ;; IO
 (~io. str) print :: {
-  str $print
+  str #print
   ~io }

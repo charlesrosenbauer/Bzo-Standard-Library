@@ -1,5 +1,5 @@
-Math $Module
-Std  $Import
+Math #Module
+Std  #Import
 
 
 
@@ -11,67 +11,67 @@ Std  $Import
 
 
 (N':Num) ^ :: (N'. N') ;; N'
-^ :: $exp-binop
+^ :: #exp-binop
 
 (R':Real) \ :: (R'. R') ;; R'
-\ :: $surd-binop
+\ :: #surd-binop
 
 (R':Real) lg :: (R'. R') ;; R'
-lg :: $log-binop
+lg :: #log-binop
 
 (R':Real) ln :: R' ;; R'
-ln :: $ln-op
+ln :: #ln-op
 
 (R':Real) sin :: R' ;; R'
-sin :: $sine
+sin :: #sine
 
 (R':Real) cos :: R' ;; R'
-cos :: $cosine
+cos :: #cosine
 
 (R':Real) tan :: R' ;; R'
-tan :: $tangent
+tan :: #tangent
 
 (R':Real) sin :: R' ;; R'
-asin :: $arcsine
+asin :: #arcsine
 
 (R':Real) cos :: R' ;; R'
-acos :: $arccosine
+acos :: #arccosine
 
 (R':Real) atan :: R' ;; R'
-atan :: $arctangent
+atan :: #arctangent
 
 (R':Real) sinh :: R' ;; R'
-sinh :: $hsine
+sinh :: #hsine
 
 (R':Real) cosh :: R' ;; R'
-cosh :: $hcosine
+cosh :: #hcosine
 
 (R':Real) tanh :: R' ;; R'
-tanh :: $htangent
+tanh :: #htangent
 
 (R':Real) asinh :: R' ;; R'
-asinh :: $arc-hsine
+asinh :: #arc-hsine
 
 (R':Real) acosh :: R' ;; R'
-acosh :: $arc-hcosine
+acosh :: #arc-hcosine
 
 (R':Real) atanh :: R' ;; R'
-atanh :: $arc-htangent
+atanh :: #arc-htangent
 
 (R':Real) floor :: R' ;; R'
-floor :: $floor
+floor :: #floor
 
 (R':Real) ciel  :: R' ;; R'
-ciel  :: $ciel
+ciel  :: #ciel
 
 (R':Real) round :: R' ;; R'
-round :: $round
+round :: #round
 
 (D':Discrete) ! :: D' ;; D'
-! :: $factorial
+! :: #factorial
 
 (R':Real) gamma :: R' ;; R'
-gamma :: $gamma
+gamma :: #gamma
 gamma :: Γ
 
 (N':Num) factorial :: N' ;; N'
@@ -143,10 +143,10 @@ prod :: 1`*`reduce          "optimized to parallel if * is associative"
     xs (avg`-).. mean dev }
 
 (N':Num) nCr :: (N'. N') ;; N'
-nCr :: $nCr
+nCr :: #nCr
 
 (N':Num) nPr :: (N'. N') ;; N'
-nPr :: $nPr
+nPr :: #nPr
 
 
 (N':Num) %+ :: (N'. N'. N') ;; N'
@@ -174,16 +174,16 @@ nPr :: $nPr
 
 
 (R':Real) \2  :: R' ;; R'
-\2  :: $sqrt
+\2  :: #sqrt
 
 (R':Real) \3  :: R' ;; R'
-\3  :: $cbrt
+\3  :: #cbrt
 
 (R':Real) l2  :: R' ;; R'
-l2  :: $log2
+l2  :: #log2
 
 (R':Real) l10  :: R' ;; R'
-l10 :: $log10
+l10 :: #log10
 
 
 (R':Real) Vec2 :: (x:R'. y:R')

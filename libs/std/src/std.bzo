@@ -1,4 +1,4 @@
-Std $Module
+Std #Module
 
 
 
@@ -11,29 +11,29 @@ Std $Module
 
 "Signed Integers"
 Int :: (I8, I16, I32, I64)
-I8  :: $Int8
-I16 :: $Int16
-I32 :: $Int32
-I64 :: $Int64
+I8  :: #Int8
+I16 :: #Int16
+I32 :: #Int32
+I64 :: #Int64
 
 "Unsigned Integers"
 Unt :: (U8, U16, U32, U64)
-U8  :: $Unt8
-U16 :: $Unt16
-U32 :: $Unt32
-U64 :: $Unt64
+U8  :: #Unt8
+U16 :: #Unt16
+U32 :: #Unt32
+U64 :: #Unt64
 
 "Floating Point"
 Flt :: (F16, F32, F64)
-F16 :: $Flt16
-F32 :: $Flt32
-F64 :: $Flt64
+F16 :: #Flt16
+F32 :: #Flt32
+F64 :: #Flt64
 
 "John Gustafson's Unums, because we need associative floats"
 Unm :: (N16, N32, N64)
-N16 :: $Unm16
-N32 :: $Unm32
-N64 :: $Unm64
+N16 :: #Unm16
+N32 :: #Unm32
+N64 :: #Unm64
 
 Num  :: (Int, Unt, Flt, Unm)
 
@@ -41,45 +41,45 @@ Real :: (Flt, Unm)
 
 Discrete :: (Int, Unt)
 
-Bl :: (True:(), False:()) $BoolTF
+Bl :: (True:(), False:()) #BoolTF
 
-Any :: $Any
+Any :: #Any
 
 
 (N':Num) + :: (N'. N') ;; N'
-+ :: $add-binop
++ :: #add-binop
 
 (N':Num) - :: (N'. N') ;; N'
-- :: $sub-binop
+- :: #sub-binop
 
 (N':Num) * :: (N'. N') ;; N'
-* :: $mul-binop
+* :: #mul-binop
 
 (N':Num) / :: (N'. N') ;; (N', ())
 (x. 0) / :: ()
-/ :: $div-binop
+/ :: #div-binop
 
 (N':Num) % :: (N'. N') ;; N'
-% :: $mod-binop
+% :: #mod-binop
 
 
 (N':Num) >  :: (N'. N') ;; Bl
->  :: $gtr-binop
+>  :: #gtr-binop
 
 (N':Num) <  :: (N'. N') ;; Bl
-<  :: $lss-binop
+<  :: #lss-binop
 
 (N':Num) >= :: (N'. N') ;; Bl
->= :: $geq-binop
+>= :: #geq-binop
 
 (N':Num) =< :: (N'. N') ;; Bl
-=< :: $leq-binop
+=< :: #leq-binop
 
 (N':Num) =  :: (N'. N') ;; Bl
-=  :: $eql-binop
+=  :: #eql-binop
 
 (N':Num) != :: (N'. N') ;; Bl
-!= :: $neq-binop
+!= :: #neq-binop
 
 !! :: Bl ;; Bl
 (True ) !! :: False
@@ -146,4 +146,4 @@ dec :: 1`-
 
 
 fail! :: () ;; Any
-fail! :: $fail!
+fail! :: #fail!
