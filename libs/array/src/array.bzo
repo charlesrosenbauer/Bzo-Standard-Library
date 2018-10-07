@@ -9,30 +9,14 @@ Array #Module
 
 
 
-len :: []T' ;; I64
+len :: [:T'] ;; I64
 len :: #arrLength
 
-->  :: ([]T'. I64) ;; T' Maybe
-->  :: #getIndex
+|>  :: [[:T'], I64] ;; T' Maybe
+|>  :: #getIndex
 
-=>  :: ([]T'. T'. I64) ;; []T'
-=>  :: #setIndex
-
-
-
-
-
-
-
-
-
-
-(T') Slice :: (
-    arr    : []T'.
-    start  : I64.
-    end    : I64.
-    stride : I64.
-    group  : I64 )
+|=  :: [[:T'], T', I64] ;; [:T']
+|=  :: #setIndex
 
 
 
@@ -43,8 +27,9 @@ len :: #arrLength
 
 
 
--> :: (T' Slice. I64) ;; T' Maybe
-(s. i) -> :: "Work Out Later"
-
-=> :: (T' Slice. T'. I64) ;; T' Slice
-(s. x. i) => :: "Work Out Later"
+[T'] Slice :: [
+    arr   .[:T'],
+    start .I64,
+    end   .I64,
+    stride.I64,
+    group .I64 ]

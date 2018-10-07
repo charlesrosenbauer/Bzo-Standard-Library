@@ -21,7 +21,7 @@ IO :: #Unique #Effect
 
 
 
-print :: (IO. String) ;; IO
-(~io. str) print :: {
+print :: [IO, String] ;; IO
+[~io, str] print :: {
   str #print
   ~io }

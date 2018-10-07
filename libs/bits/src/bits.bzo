@@ -24,22 +24,22 @@ Bits :: (B8, B16, B32, B64)
 
 
 
-(T':Bits) and :: (T' T') ;; T'
+[T'.Bits] and :: [T', T'] ;; T'
 and :: #and-binop
 
-(T':Bits) or  :: (T'. T') ;; T'
+[T'.Bits] or  :: [T', T'] ;; T'
 or  :: #or-binop
 
-(T':Bits) xor :: (T'. T') ;; T'
+[T'.Bits] xor :: [T', T'] ;; T'
 xor :: #xor-binop
 
-(T':Bits) not :: T' ;; T'
+[T'.Bits] not :: T' ;; T'
 not :: #not-op
 
-(T':Bits) >>  :: (T'. I64) ;; T'
+[T'.Bits] >>  :: [T', I64] ;; T'
 >>  :: #rshift-binop
 
-(T':Bits) <<  :: (T'. I64) ;; T'
+[T'.Bits] <<  :: [T', I64] ;; T'
 <<  :: #lshift-binop
 
 clz :: Bits ;; I64

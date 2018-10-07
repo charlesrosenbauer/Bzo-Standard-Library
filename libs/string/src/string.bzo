@@ -10,9 +10,9 @@ String #Module
 
 
 Char :: #Char       "UTF Character"
-Str  :: []Char      "UTF String"
+Str  :: [:Char]     "UTF String"
 ASCII:: #ASCII      "ASCII Character"
-AStr :: []ASCII     "ASCII String"
+AStr :: [:ASCII]    "ASCII String"
 
 
 
@@ -24,7 +24,7 @@ AStr :: []ASCII     "ASCII String"
 
 
 Showable :: {
-  (S':Showable) show :: S' ;; Str
+  [S'.Showable] show :: S' ;; Str
 }
 
 
@@ -36,7 +36,7 @@ Showable :: {
 
 
 
-++ :: (Str. Str) ;; Str
+++ :: [Str, Str] ;; Str
 ++ :: #append-array
 
 toUppercase :: Chr ;; Chr
@@ -51,8 +51,8 @@ strUppercase :: toUppercase..
 strLowercase :: Str ;; Str
 strLowercase :: toLowercase..
 
-isPrefix :: (Str. Str) ;; Bl
+isPrefix :: [Str, Str] ;; Bl
 isPrefix :: #isPrefix
 
-isSuffix :: (Str. Str) ;; Bl
+isSuffix :: [Str, Str] ;; Bl
 isSuffix :: #isSuffix

@@ -18,10 +18,10 @@ I64 :: #Int64
 
 "Unsigned Integers"
 Unt :: (U8, U16, U32, U64)
-U8  :: #Unt8
-U16 :: #Unt16
-U32 :: #Unt32
-U64 :: #Unt64
+U8  :: #Uint8
+U16 :: #Uint16
+U32 :: #Uint32
+U64 :: #Uint64
 
 "Floating Point"
 Flt :: (F16, F32, F64)
@@ -29,120 +29,105 @@ F16 :: #Flt16
 F32 :: #Flt32
 F64 :: #Flt64
 
-"John Gustafson's Unums, because we need associative floats"
-Unm :: (N16, N32, N64)
-N16 :: #Unm16
-N32 :: #Unm32
-N64 :: #Unm64
+"Posits"
+Pst :: (P8, P16, P32, P64)
+P8  :: #Pst8
+P16 :: #Pst16
+P32 :: #Pst32
+P64 :: #Pst64
 
-Num  :: (Int, Unt, Flt, Unm)
-
-Real :: (Flt, Unm)
-
-Discrete :: (Int, Unt)
-
-Bl :: (True:(), False:()) #BoolTF
-
-Any :: #Any
+Integral :: (Int, Unt)
+Real :: (Pst, Flt)
 
 
-(N':Num) + :: (N'. N') ;; N'
+
+Num  :: (Int, Unt, Flt, Pst)
+
+
+Sld  :: (S8, S16, S32, S64, S128, S256, S512)
+S8   :: #S8
+S16  :: #S16
+S32  :: #S32
+S64  :: #S64
+S128 :: #S128
+S256 :: #S256
+S512 :: #S512
+
+
+Bl :: (True.[], False.[]) #BoolTF
+
+
+[N'.Num] + :: [N', N'] ;; N'
 + :: #add-binop
 
-(N':Num) - :: (N'. N') ;; N'
+[N'.Num] - :: [N', N'] ;; N'
 - :: #sub-binop
 
-(N':Num) * :: (N'. N') ;; N'
-* :: #mul-binop
+[N'.Num] * :: [N', N'] ;; N'
++ :: #mul-binop
 
-(N':Num) / :: (N'. N') ;; (N', ())
-(x. 0) / :: ()
-/ :: #div-binop
+[N'.Num] / :: [N', N'] ;; N'
+- :: #div-binop
 
-(N':Num) % :: (N'. N') ;; N'
-% :: #mod-binop
+[N'.Num] % :: [N', N'] ;; N'
++ :: #mod-binop
 
-
-(N':Num) >  :: (N'. N') ;; Bl
->  :: #gtr-binop
-
-(N':Num) <  :: (N'. N') ;; Bl
-<  :: #lss-binop
-
-(N':Num) >= :: (N'. N') ;; Bl
->= :: #geq-binop
-
-(N':Num) =< :: (N'. N') ;; Bl
-=< :: #leq-binop
-
-(N':Num) =  :: (N'. N') ;; Bl
-=  :: #eql-binop
-
-(N':Num) != :: (N'. N') ;; Bl
-!= :: #neq-binop
 
 !! :: Bl ;; Bl
-(True ) !! :: False
-(False) !! :: True
+[True ] !! :: False
+[False] !! :: True
 
-&& :: (Bl. Bl) ;; Bl
-(True. True) && :: True
-(x.    y   ) && :: False
+&& :: [Bl, Bl] ;; Bl
+[True, True] && :: True
+[x,    y   ] && :: False
 
-|| :: (Bl. Bl) ;; Bl
-(False. False) || :: False
-(x.     y    ) || :: True
+|| :: [Bl, Bl] ;; Bl
+[False, False] || :: False
+[x,     y    ] || :: True
 
-? :: (Bl. A'. B') ;; (A', B')
-(True.  x. _) ? :: x
-(False. _. y) ? :: y
+? :: [Bl, A', B'] ;; (A', B')
+[True,  x, _] ? :: x
+[False, _, y] ? :: y
 
-!? :: (Bl. A'. B') ;; (A', B')
-(True.  _. y) !? :: y
-(False. x. _) !? :: x
+!? :: [Bl, A', B'] ;; (A', B')
+[True,  _, y] !? :: y
+[False, x, _] !? :: x
 
-(T') Maybe :: (Just:T', Nothing:())
+[T'] Maybe :: (Just.T', Nothing.[])
 
-(A'. B') Either :: (Left:A', Right:B')
-
-
+[A', B'] Either :: (Left.A', Right.B')
 
 
-
-
-
-
-
-
-(N':Num) inc :: N' ;; N'
+[N'.Num] inc :: N' ;; N'
 inc :: 1`+
 
-(N':Num) dec :: N' ;; N'
-dec :: 1`-
 
-(N':Num) *2 :: N' ;; N'
-*2 :: 2`*
+[N'.Num] ^3 :: N' ;; N'
+[x] ^3 :: [x, x ^2]*
 
-(N':Num) /2 :: N' ;; N'
-/2 :: 2`*
 
-(N':Num) *3 :: N' ;; N'
-(x) *3 :: (x. x *2)+
 
-(N':Num) /3 :: N' ;; N'
-/3 :: 3`/
+[S'.Sld, N'.Integral] |+ :: [S', N'] ;; S'
+|+ :: #slideInsert
 
-(N':Num) %2 :: N' ;; N'
-%2 :: 2`%
+[S'.Sld, N'.Integral] |- :: [S', N'] ;; S'
+|- :: #slideRemove
 
-(N':Num) %3 :: N' ;; N'
-%3 :: 3`%
+[S'.Sld, N'.Integral] |= :: [S', N'] ;; S'
+|= :: #slideRead
 
-(N':Num) ^2 :: N' ;; N'
-(x) ^2 :: (x. x)*
+[S'.Sld] || :: [S', S'] ;; S'
+|| :: #slideUnion
 
-(N':Num) ^3 :: N' ;; N'
-(x) ^3 :: (x. x ^2)*
+[S'.Sld] && :: [S', S'] ;; S'
+|& :: #slideIntersection
+
+[S'.Sld] ^^ :: [S', S'] ;; S'
+|^ :: #slideDifference
+
+[S'.Sld] !! :: S' ;; S'
+|! :: #slideInverse
+
 
 
 fail! :: () ;; Any

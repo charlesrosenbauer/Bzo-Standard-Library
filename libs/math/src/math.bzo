@@ -10,71 +10,71 @@ Std  #Import
 
 
 
-(N':Num) ^ :: (N'. N') ;; N'
+[N'.Num] ^ :: [N', N'] ;; N'
 ^ :: #exp-binop
 
-(R':Real) \ :: (R'. R') ;; R'
+[R'.Real] \ :: [R', R'] ;; R'
 \ :: #surd-binop
 
-(R':Real) lg :: (R'. R') ;; R'
+[R'.Real] lg :: [R', R'] ;; R'
 lg :: #log-binop
 
-(R':Real) ln :: R' ;; R'
+[R'.Real] ln :: R' ;; R'
 ln :: #ln-op
 
-(R':Real) sin :: R' ;; R'
+[R'.Real] sin :: R' ;; R'
 sin :: #sine
 
-(R':Real) cos :: R' ;; R'
+[R'.Real] cos :: R' ;; R'
 cos :: #cosine
 
-(R':Real) tan :: R' ;; R'
+[R'.Real] tan :: R' ;; R'
 tan :: #tangent
 
-(R':Real) sin :: R' ;; R'
+[R'.Real] sin :: R' ;; R'
 asin :: #arcsine
 
-(R':Real) cos :: R' ;; R'
+[R'.Real] cos :: R' ;; R'
 acos :: #arccosine
 
-(R':Real) atan :: R' ;; R'
+[R'.Real] atan :: R' ;; R'
 atan :: #arctangent
 
-(R':Real) sinh :: R' ;; R'
+[R'.Real] sinh :: R' ;; R'
 sinh :: #hsine
 
-(R':Real) cosh :: R' ;; R'
+[R'.Real] cosh :: R' ;; R'
 cosh :: #hcosine
 
-(R':Real) tanh :: R' ;; R'
+[R'.Real] tanh :: R' ;; R'
 tanh :: #htangent
 
-(R':Real) asinh :: R' ;; R'
+[R'.Real] asinh :: R' ;; R'
 asinh :: #arc-hsine
 
-(R':Real) acosh :: R' ;; R'
+[R'.Real] acosh :: R' ;; R'
 acosh :: #arc-hcosine
 
-(R':Real) atanh :: R' ;; R'
+[R'.Real] atanh :: R' ;; R'
 atanh :: #arc-htangent
 
-(R':Real) floor :: R' ;; R'
+[R'.Real] floor :: R' ;; R'
 floor :: #floor
 
-(R':Real) ciel  :: R' ;; R'
+[R'.Real] ciel  :: R' ;; R'
 ciel  :: #ciel
 
-(R':Real) round :: R' ;; R'
+[R'.Real] round :: R' ;; R'
 round :: #round
 
-(D':Discrete) ! :: D' ;; D'
+[D'.Discrete] ! :: D' ;; D'
 ! :: #factorial
 
-(R':Real) gamma :: R' ;; R'
+[R'.Real] gamma :: R' ;; R'
 gamma :: #gamma
 gamma :: Γ
 
-(N':Num) factorial :: N' ;; N'
+(N'.Num) factorial :: N' ;; N'
 factorial :: (!, Γ)
 
 pi :: () ;; F64
@@ -96,8 +96,8 @@ e :: 2.71828182845904523536
 
 
 Eq :: {
-  (E':Eq) =  :: (E'. E') ;; Bl
-  (E':Eq) != :: (E'. E') ;; Bl
+  [E'.Eq] =  :: [E', E'] ;; Bl
+  [E'.Eq] != :: [E', E'] ;; Bl
 }
 
 
@@ -110,10 +110,10 @@ Eq :: {
 
 
 Ord:: {
-  (O':Ord) >  :: (O'. O') ;; Bl
-  (O':Ord) <  :: (O'. O') ;; Bl
-  (O':Ord) >= :: (O'. O') ;; Bl
-  (O':Ord) =< :: (O'. O') ;; Bl
+  [O'.Ord] >  :: [O', O'] ;; Bl
+  [O'.Ord] <  :: [O', O'] ;; Bl
+  [O'.Ord] >= :: [O', O'] ;; Bl
+  [O'.Ord] =< :: [O', O'] ;; Bl
 }
 
 
@@ -125,46 +125,44 @@ Ord:: {
 
 
 
-(N':Num) sum :: []N' ;; N'
+[N'.Num] sum :: [:N'] ;; N'
 sum :: 0`+`reduce           "optimized to parallel if + is associative"
 
-(N':Num) prod :: []N' ;; N'
+[N'.Num] prod :: [:N'] ;; N'
 prod :: 1`*`reduce          "optimized to parallel if * is associative"
 
-(N':Num) mean :: []N' ;; N'
+[N'.Num] mean :: [:N'] ;; N'
 (xs) mean :: xs sum (xs len)`//
 
-(N':Num) geomean :: []N' ;; N'
+[N'.Num] geomean :: [:N'] ;; N'
 (xs) geomean :: xs prod (xs len)`\
 
-(N':Num) stdDev :: []N' ;; (N'. N')       "(Std Dev . Average)"
-(xs) stdDev (dev. avg) :: {
+[N'.Num] stdDev :: [:N'] ;; [N', N']       "(Std Dev . Average)"
+(xs) stdDev [dev, avg] :: {
     xs mean avg
     xs (avg`-).. mean dev }
 
-(N':Num) nCr :: (N'. N') ;; N'
+[N'.Num] nCr :: [N', N'] ;; N'
 nCr :: #nCr
 
-(N':Num) nPr :: (N'. N') ;; N'
+[N'.Num] nPr :: [N', N'] ;; N'
 nPr :: #nPr
 
 
-(N':Num) %+ :: (N'. N'. N') ;; N'
-(a. b. c) %+ :: (a. b) + c`%
+[N'.Num] %+ :: [N', N', N'] ;; N'
+[a, b, c] %+ :: [a, b] + c`%
 
-(N':Num) %- :: (N'. N'. N') ;; N'
-(a. b. c) %- :: (a. b) - c`%
+[N'.Num] %- :: [N', N', N'] ;; N'
+[a, b, c] %- :: [a, b] - c`%
 
-(N':Num) %* :: (N'. N'. N') ;; N'
-(a. b. c) %* :: (a. b) * c`%
+[N'.Num] %* :: [N', N', N'] ;; N'
+[a, b, c] %* :: [a, b] * c`%
 
-(N':Num) %/ :: (N'. N'. N') ;; N'
-(a. b. c) %/ :: (a. b) / c`%
+[N'.Num] %/ :: [N', N', N'] ;; N'
+[a, b, c] %/ :: [a, b] / c`%
 
-(N':Num) %^ :: (N'. N'. N') ;; N'
-(a. b. c) %^ :: (a. b) ^ c`%
-
-
+[N'.Num] %^ :: [N', N', N'] ;; N'
+[a, b, c] %^ :: [a, b] ^ c`%
 
 
 
@@ -173,18 +171,20 @@ nPr :: #nPr
 
 
 
-(R':Real) \2  :: R' ;; R'
+
+
+[R'.Real] \2  :: R' ;; R'
 \2  :: #sqrt
 
-(R':Real) \3  :: R' ;; R'
+[R'.Real] \3  :: R' ;; R'
 \3  :: #cbrt
 
-(R':Real) l2  :: R' ;; R'
+[R'.Real] l2  :: R' ;; R'
 l2  :: #log2
 
-(R':Real) l10  :: R' ;; R'
+[R'.Real] l10  :: R' ;; R'
 l10 :: #log10
 
 
-(R':Real) Vec2 :: (x:R'. y:R')
-(R':Real) Vec3 :: (x:R'. y:R'. z:R')
+[R'.Real] Vec2 :: [x.R', y.R']
+[R'.Real] Vec3 :: [x.R', y.R', z.R']
