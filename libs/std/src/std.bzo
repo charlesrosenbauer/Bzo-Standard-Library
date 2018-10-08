@@ -36,12 +36,11 @@ P16 :: #Pst16
 P32 :: #Pst32
 P64 :: #Pst64
 
-Integral :: (Int, Unt)
-Real :: (Pst, Flt)
+Num  :: (Int, Unt, Flt, Unm)
 
+Real :: (Flt, Pst)
 
-
-Num  :: (Int, Unt, Flt, Pst)
+Discrete :: (Int, Unt)
 
 
 Sld  :: (S8, S16, S32, S64, S128, S256, S512)
@@ -56,6 +55,8 @@ S512 :: #S512
 
 Bl :: (True.[], False.[]) #BoolTF
 
+Any :: #Any
+
 
 [N'.Num] + :: [N', N'] ;; N'
 + :: #add-binop
@@ -64,13 +65,32 @@ Bl :: (True.[], False.[]) #BoolTF
 - :: #sub-binop
 
 [N'.Num] * :: [N', N'] ;; N'
-+ :: #mul-binop
+* :: #mul-binop
 
 [N'.Num] / :: [N', N'] ;; N'
-- :: #div-binop
+/ :: #div-binop
 
 [N'.Num] % :: [N', N'] ;; N'
-+ :: #mod-binop
+% :: #mod-binop
+
+
+[N'.Num] >  :: [N', N'] ;; Bl
+>  :: #gtr-binop
+
+[N'.Num] <  :: [N', N'] ;; Bl
+<  :: #lss-binop
+
+[N'.Num] >= :: [N', N'] ;; Bl
+>= :: #geq-binop
+
+[N'.Num] =< :: [N', N'] ;; Bl
+=< :: #leq-binop
+
+[N'.Num] =  :: [N', N'] ;; Bl
+=  :: #eql-binop
+
+[N'.Num] != :: [N', N'] ;; Bl
+!= :: #neq-binop
 
 
 !! :: Bl ;; Bl
@@ -101,6 +121,29 @@ Bl :: (True.[], False.[]) #BoolTF
 [N'.Num] inc :: N' ;; N'
 inc :: 1`+
 
+[N'.Num] dec :: N' ;; N'
+dec :: 1`-
+
+[N'.Num] *2 :: N' ;; N'
+*2 :: 2`*
+
+[N'.Num] /2 :: N' ;; N'
+/2 :: 2`*
+
+[N'.Num] *3 :: N' ;; N'
+(x) *3 :: [x, x *2]+
+
+[N'.Num] /3 :: N' ;; N'
+/3 :: 3`/
+
+[N'.Num] %2 :: N' ;; N'
+%2 :: 2`%
+
+[N'.Num] %3 :: N' ;; N'
+%3 :: 3`%
+
+[N'.Num] ^2 :: N' ;; N'
+[x] ^2 :: [x, x]*
 
 [N'.Num] ^3 :: N' ;; N'
 [x] ^3 :: [x, x ^2]*
@@ -115,6 +158,13 @@ inc :: 1`+
 
 [S'.Sld, N'.Integral] |= :: [S', N'] ;; S'
 |= :: #slideRead
+
+[S'.Sld, N'.Integral] |? :: [S', N'] ;; Bl
+|? :: #slideComp
+
+[S'.Sld, N'.Integral] |?!:: [S', N'] ;; Bl
+|?!:: |? !!
+
 
 [S'.Sld] || :: [S', S'] ;; S'
 || :: #slideUnion
