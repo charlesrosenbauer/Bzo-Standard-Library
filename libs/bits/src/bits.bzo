@@ -69,8 +69,8 @@ toUnt  :: #toUnt
 toFlt  :: (B16, B32, B64) ;; Flt
 toFlt  :: #toFlt
 
-toUnm  :: (B16, B32, B64) ;; Unm
-toUnm  :: #toUnm
+toPst  :: (B16, B32, B64) ;; Pst
+toPst  :: #toPst
 
 toBits :: Num ;; Bits
 toBits :: #toBits
