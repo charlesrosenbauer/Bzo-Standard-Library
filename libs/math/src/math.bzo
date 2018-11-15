@@ -67,15 +67,14 @@ ciel  :: #ciel
 [R'.Real] round :: R' ;; R'
 round :: #round
 
-[D'.Discrete] ! :: D' ;; D'
+[D'.Integral] ! :: D' ;; D'
 ! :: #factorial
 
 [R'.Real] gamma :: R' ;; R'
 gamma :: #gamma
-gamma :: Γ
 
 (N'.Num) factorial :: N' ;; N'
-factorial :: (!, Γ)
+factorial :: (!, gamma)
 
 pi :: () ;; F64
 pi :: 3.14159265358979323846

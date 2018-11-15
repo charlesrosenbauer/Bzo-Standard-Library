@@ -10,11 +10,11 @@ Std   #Include
 
 
 
-isLeft ::[[A', B'] Either] ;; Bool
+isLeft ::[[A', B'] Either] ;; Bl
 [Left]  isLeft :: True
 [Right] isLeft :: False
 
-isRight :: [[A', B'] Either] ;; Bool
+isRight :: [[A', B'] Either] ;; Bl
 isRight :: isLeft !!
 
 fromLeft! :: [[A', B'] Either] ;; A'
@@ -34,11 +34,11 @@ fromRight! :: [[A', B'] Either] ;; A'
 
 
 
-isJust :: [A' Maybe] ;; Bool
+isJust :: [A' Maybe] ;; Bl
 [Just] isJust :: True
 [_]    isJust :: False
 
-isNothing :: [A' Maybe] ;; Bool
+isNothing :: [A' Maybe] ;; Bl
 isNothing :: isJust !!
 
 fromJust! :: [A' Maybe] ;; A'

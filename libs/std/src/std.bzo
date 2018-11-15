@@ -36,11 +36,11 @@ P16 :: #Pst16
 P32 :: #Pst32
 P64 :: #Pst64
 
-Num  :: (Int, Unt, Flt, Unm)
+Num  :: (Int, Unt, Flt, Pst)
 
 Real :: (Flt, Pst)
 
-Discrete :: (Int, Unt)
+Integral :: (Int, Unt)
 
 
 Sld  :: (S8, S16, S32, S64, S128, S256, S512)
