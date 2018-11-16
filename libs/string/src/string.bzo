@@ -1,4 +1,5 @@
 String #Module
+Std    #Import
 
 
 
@@ -9,8 +10,8 @@ String #Module
 
 
 
-Char :: #Char       "UTF Character"
-Str  :: [:Char]     "UTF String"
+Chr  :: #Char       "UTF Character"
+Str  :: [:Chr]      "UTF String"
 ASCII:: #ASCII      "ASCII Character"
 AStr :: [:ASCII]    "ASCII String"
 

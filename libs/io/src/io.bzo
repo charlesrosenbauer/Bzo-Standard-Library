@@ -1,5 +1,6 @@
-StdIO #Module
-Std   #Import
+StdIO  #Module
+Std    #Import
+String #Import
 
 
 
