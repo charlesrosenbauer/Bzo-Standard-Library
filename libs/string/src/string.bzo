@@ -10,7 +10,7 @@ Std    #Import
 
 
 
-Chr  :: #Char       "UTF Character"
+Chr  :: #UTF8       "UTF Character"
 Str  :: [:Chr]      "UTF String"
 ASCII:: #ASCII      "ASCII Character"
 AStr :: [:ASCII]    "ASCII String"
@@ -38,7 +38,7 @@ Showable :: {
 
 
 ++ :: [Str, Str] ;; Str
-++ :: #append-array
+++ :: #concat
 
 toUppercase :: Chr ;; Chr
 toUppercase :: #to-uppercase

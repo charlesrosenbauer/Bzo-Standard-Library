@@ -18,10 +18,10 @@ I64 :: #Int64
 
 "Unsigned Integers"
 Unt :: (U8, U16, U32, U64)
-U8  :: #Uint8
-U16 :: #Uint16
-U32 :: #Uint32
-U64 :: #Uint64
+U8  :: #Unt8
+U16 :: #Unt16
+U32 :: #Unt32
+U64 :: #Unt64
 
 "Floating Point"
 Flt :: (F16, F32, F64)

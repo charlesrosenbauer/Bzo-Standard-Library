@@ -13,19 +13,19 @@ map :: #map
 
 "parallel reduce"
 fold :: [[:A'], [[A', A'] ;; A']] ;; A'
-fold :: #fold
+fold :: #pfold
 
 "sequential reduce"
 reduce :: [[:A'], B', [[B', A'] ;; B']] ;; B'
-reduce :: #reduce
+reduce :: #sfold
 
 "parallel scan"
 scan :: [[:A'], [[A', A'] ;; A']] ;; [:A']
-scan :: #scan
+scan :: #pscan
 
 "sequential scan"
 chain :: [[:A'], B', [[B', A'] ;; B']] ;; B'
-chain :: #chain
+chain :: #sscan
 
 "overloaded implementations for zip2, zip3, and zip4"
 zip :: [[:A'], [:B']] ;; [:[A', B']]
