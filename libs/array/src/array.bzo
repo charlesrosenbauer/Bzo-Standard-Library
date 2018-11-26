@@ -1,4 +1,5 @@
 Array #Module
+Std   #Import
 
 
 
@@ -9,27 +10,41 @@ Array #Module
 
 
 
-len :: [:T'] ;; I64
-len :: #arrLength
+[F'] Functor :: {
+  map   :: [A' F',          A'  ;; B'] ;; B' F'
+}
 
-|>  :: [[:T'], I64] ;; T' Maybe
-|>  :: #getIndex
+"map #mapAlias"
 
-|=  :: [[:T'], T', I64] ;; [:T']
-|=  :: #setIndex
+[F'.Functor] Foldable :: {
+  pfold :: [A' F', A', [A', A'] ;; A'] ;; A'
+  sfold :: [A' F', B', [B', A'] ;; B'] ;; B'
+  pscan :: [A' F', A', [A', A'] ;; A'] ;; A' F'
+  sscan :: [A' F', B', [B', A'] ;; B'] ;; B' F'
+}
 
+[A'.Foldable] Arr :: {
+  ?>    :: [A',     Int ] ;; (X', ())
+  =>    :: [A', X', Int ] ;;  A'
+  len   ::  A'            ;; Int
+  zip   :: [X' A', Y' A'] ;; [X', Y'] A'
+  unzip :: [X', Y'] A'    ;; [X' A', Y' A']
+}
 
+"Arr #arrAlias"
 
+[V'.Arr] View :: {
+  drop    :: [V', Int] ;;  V'
+  take    :: [V', Int] ;;  V'
+  repeat  :: [V', Int] ;;  V'
+  cycle   :: V'        ;;  V'
+  reverse :: V'        ;;  V'
+  concat  :: [V', V']  ;;  V'
+  split   :: [V', Int] ;; [V', V']
+}
 
-
-
-
-
-
-
-[T'] Slice :: [
-    arr   .[:T'],
-    start .I64,
-    end   .I64,
-    stride.I64,
-    group .I64 ]
+[C'.View] Container :: {
+  +>     :: [C', A'] ;; C'
+  ->     :: [C', K'] ;; C'
+  toArr  ::      C'  ;; [K', A'] Arr
+}
