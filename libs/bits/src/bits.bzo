@@ -1,4 +1,5 @@
 Bits #Module
+Std  #Import
 
 
 
@@ -9,10 +10,10 @@ Bits #Module
 
 
 
-B8   :: #Byte
-B16  :: #Half
-B32  :: #Word
-B64  :: #Dword
+B8   :: #Unt8
+B16  :: #Unt16
+B32  :: #Unt32
+B64  :: #Unt64
 Bits :: (B8, B16, B32, B64)
 
 
@@ -61,16 +62,16 @@ pct :: #popcount-op
 
 
 toInt  :: Bits ;; Int
-toInt  :: #toInt
+toInt  :: #trunc
 
 toUnt  :: Bits ;; Unt
-toUnt  :: #toUnt
+toUnt  :: #trunc
 
 toFlt  :: (B16, B32, B64) ;; Flt
-toFlt  :: #toFlt
+toFlt  :: #floatcast
 
 toPst  :: (B16, B32, B64) ;; Pst
-toPst  :: #toPst
+toPst  :: #positcast
 
 toBits :: Num ;; Bits
 toBits :: #toBits
