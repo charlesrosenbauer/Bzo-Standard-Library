@@ -57,3 +57,20 @@ isPrefix :: #isPrefix
 
 isSuffix :: [Str, Str] ;; Bl
 isSuffix :: #isSuffix
+
+
+
+
+
+
+Regex :: #Regex
+
+
+
+
+compileRegex :: Str ;; (Regex, ())
+compileRegex :: #compileRegex
+
+
+matchRegex :: [Str, Regex] ;; Bool
+matchRegex :: #matchRegex
