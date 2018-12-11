@@ -72,5 +72,5 @@ compileRegex :: Str ;; (Regex, ())
 compileRegex :: #compileRegex
 
 
-matchRegex :: [Str, Regex] ;; Bool
+matchRegex :: [Str, Regex] ;; Bl
 matchRegex :: #matchRegex

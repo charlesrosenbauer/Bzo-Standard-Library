@@ -151,32 +151,32 @@ dec :: 1`-
 
 
 [S'.Sld, N'.Integral] |+ :: [S', N'] ;; S'
-|+ :: #slideInsert
+|+ :: #shadeInsert
 
 [S'.Sld, N'.Integral] |- :: [S', N'] ;; S'
-|- :: #slideRemove
+|- :: #shadeRemove
 
 [S'.Sld, N'.Integral] |= :: [S', N'] ;; S'
-|= :: #slideRead
+|= :: #shadeRead
 
 [S'.Sld, N'.Integral] |? :: [S', N'] ;; Bl
-|? :: #slideComp
+|? :: #shadeComp
 
 [S'.Sld, N'.Integral] |?!:: [S', N'] ;; Bl
 |?!:: |? !!
 
 
 [S'.Sld] || :: [S', S'] ;; S'
-|| :: #slideUnion
+|| :: #shadeUnion
 
 [S'.Sld] && :: [S', S'] ;; S'
-|& :: #slideIntersection
+|& :: #shadeIntersection
 
 [S'.Sld] ^^ :: [S', S'] ;; S'
-|^ :: #slideDifference
+|^ :: #shadeDifference
 
 [S'.Sld] !! :: S' ;; S'
-|! :: #slideInverse
+|! :: #shadeInverse
 
 
 
