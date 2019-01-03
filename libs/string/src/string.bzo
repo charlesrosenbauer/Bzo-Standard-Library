@@ -12,8 +12,7 @@ Std    #Import
 
 Chr  :: #UTF8       "UTF Character"
 Str  :: [:Chr]      "UTF String"
-ASCII:: #ASCII      "ASCII Character"
-AStr :: [:ASCII]    "ASCII String"
+
 
 
 
