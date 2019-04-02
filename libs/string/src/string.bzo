@@ -10,7 +10,7 @@ Std    #Import
 
 
 
-Chr  :: #UTF8       "UTF Character"
+Chr  :: #Char       "UTF Character"
 Str  :: [:Chr]      "UTF String"
 
 
