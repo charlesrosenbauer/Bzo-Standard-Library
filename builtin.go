@@ -88,3 +88,39 @@ func memcpy(size int, from, to uintptr){
     *bw = *(*int8)(unsafe.Pointer(from + uintptr(j)))
   }
 }
+
+
+
+func reverse(a GenArr, q *GenArr){
+  *q = a;
+  q.Ptr = a.Ptr + uintptr(a.Stride * a.Size);
+  q.Stride *= -1;
+}
+
+
+
+func drop(a GenArr, ct int, q *GenArr){
+  *q = a;
+  q.Ptr = a.Ptr + uintptr(a.Stride * ct);
+  q.Size -= ct;
+  if q.Size < 0 {
+    q.Size = 0;
+  }
+}
+
+
+func take(a GenArr, ct int, q *GenArr){
+  *q = a;
+  if ct < q.Size {
+    q.Size = ct;
+  }
+}
+
+
+func every_n(a GenArr, ct int, q *GenArr){
+  *q = a;
+
+  // This probably needs a more robust solution.
+  q.Stride *= ct;
+  q.Size /= ct;
+}
