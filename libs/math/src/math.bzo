@@ -104,9 +104,9 @@ e :: 2.71828182845904523536
 
 
 
-Eq :: {
-  [E'.Eq] =  :: [E', E'] ;; Bl
-  [E'.Eq] != :: [E', E'] ;; Bl
+[E'] Eq :: {
+  =  :: [E', E'] ;; Bl
+  != :: [E', E'] ;; Bl
 }
 
 
@@ -118,11 +118,11 @@ Eq :: {
 
 
 
-Ord:: {
-  [O'.Ord] >  :: [O', O'] ;; Bl
-  [O'.Ord] <  :: [O', O'] ;; Bl
-  [O'.Ord] >= :: [O', O'] ;; Bl
-  [O'.Ord] =< :: [O', O'] ;; Bl
+[O'] Ord:: {
+  >  :: [O', O'] ;; Bl
+  <  :: [O', O'] ;; Bl
+  >= :: [O', O'] ;; Bl
+  =< :: [O', O'] ;; Bl
 }
 
 
@@ -146,7 +146,7 @@ prod :: [reduce: *, 1, _]          "optimized to parallel if * is associative"
 [N'.Num] geomean :: [:N'] ;; N'
 [xs] geomean :: xs prod [\\: _, xs len]
 
-[N'.Num] stdDev :: [:N'] ;; [N', N']       "(Std Dev . Average)"
+[N'.Num] stdDev :: [:N'] ;; [N', N']       "[Std Dev , Average]"
 [xs] stdDev [dev, avg] :: {
     xs mean avg
     xs [[-: _, avg]].. mean dev }
