@@ -10,6 +10,16 @@ Std  #Import
 
 
 
+"Safe divide that returns 0 on a divide by zero"
+[N'.Num] //:: [N', N'] ;; N'
+[_, 0]   //:: 0
+[a, b]   //:: [/: a, b]
+
+"Safe surd that returns 0 on a^(1/0)"
+[R'.Real] \\:: [R', R'] ;; R'
+[_, 0]    \\:: 0
+[a, b]    \\:: [\: a, b]
+
 [N'.Num] ^ :: [N', N'] ;; N'
 ^ :: #exp-binop
 
@@ -125,21 +135,21 @@ Ord:: {
 
 
 [N'.Num] sum :: [:N'] ;; N'
-sum :: 0`+`reduce           "optimized to parallel if + is associative"
+sum :: [reduce: +, 0, _]           "optimized to parallel if + is associative"
 
 [N'.Num] prod :: [:N'] ;; N'
-prod :: 1`*`reduce          "optimized to parallel if * is associative"
+prod :: [reduce: *, 1, _]          "optimized to parallel if * is associative"
 
 [N'.Num] mean :: [:N'] ;; N'
-(xs) mean :: xs sum (xs len)`//
+[xs] mean :: xs sum [//: _, xs len]
 
 [N'.Num] geomean :: [:N'] ;; N'
-(xs) geomean :: xs prod (xs len)`\
+[xs] geomean :: xs prod [\\: _, xs len]
 
 [N'.Num] stdDev :: [:N'] ;; [N', N']       "(Std Dev . Average)"
-(xs) stdDev [dev, avg] :: {
+[xs] stdDev [dev, avg] :: {
     xs mean avg
-    xs (avg`-).. mean dev }
+    xs [[-: _, avg]].. mean dev }
 
 [N'.Num] nCr :: [N', N'] ;; N'
 nCr :: #nCr
