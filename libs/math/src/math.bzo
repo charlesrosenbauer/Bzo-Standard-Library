@@ -16,83 +16,83 @@ Std  #Import
 [a, b]   //:: [/: a, b]
 
 "Safe surd that returns 0 on a^(1/0)"
-[R'.Real] \\:: [R', R'] ;; R'
+[F'.Flt] \\:: [F', F'] ;; F'
 [_, 0]    \\:: 0
 [a, b]    \\:: [\: a, b]
 
 [N'.Num] ^ :: [N', N'] ;; N'
 ^ :: #exp-binop
 
-[R'.Real] \ :: [R', R'] ;; R'
+[F'.Flt] \ :: [F', F'] ;; F'
 \ :: #surd-binop
 
-[R'.Real] lg :: [R', R'] ;; R'
+[F'.Flt] lg :: [F', F'] ;; F'
 lg :: #log-binop
 
-[R'.Real] ln :: R' ;; R'
+[F'.Flt] ln :: F' ;; F'
 ln :: #ln-op
 
-[R'.Real] sin :: R' ;; R'
+[F'.Flt] sin :: F' ;; F'
 sin :: #sine
 
-[R'.Real] cos :: R' ;; R'
+[F'.Flt] cos :: F' ;; F'
 cos :: #cosine
 
-[R'.Real] tan :: R' ;; R'
+[F'.Flt] tan :: F' ;; F'
 tan :: #tangent
 
-[R'.Real] sin :: R' ;; R'
+[F'.Flt] sin :: F' ;; F'
 asin :: #arcsine
 
-[R'.Real] cos :: R' ;; R'
+[F'.Flt] cos :: F' ;; F'
 acos :: #arccosine
 
-[R'.Real] atan :: R' ;; R'
+[F'.Flt] atan :: F' ;; F'
 atan :: #arctangent
 
-[R'.Real] sinh :: R' ;; R'
+[F'.Flt] sinh :: F' ;; F'
 sinh :: #hsine
 
-[R'.Real] cosh :: R' ;; R'
+[F'.Flt] cosh :: F' ;; F'
 cosh :: #hcosine
 
-[R'.Real] tanh :: R' ;; R'
+[F'.Flt] tanh :: F' ;; F'
 tanh :: #htangent
 
-[R'.Real] asinh :: R' ;; R'
+[F'.Flt] asinh :: F' ;; F'
 asinh :: #arc-hsine
 
-[R'.Real] acosh :: R' ;; R'
+[F'.Flt] acosh :: F' ;; F'
 acosh :: #arc-hcosine
 
-[R'.Real] atanh :: R' ;; R'
+[F'.Flt] atanh :: F' ;; F'
 atanh :: #arc-htangent
 
-[R'.Real] floor :: R' ;; R'
+[F'.Flt] floor :: F' ;; F'
 floor :: #floor
 
-[R'.Real] ciel  :: R' ;; R'
+[F'.Flt] ciel  :: F' ;; F'
 ciel  :: #ciel
 
-[R'.Real] round :: R' ;; R'
+[F'.Flt] round :: F' ;; F'
 round :: #round
 
-[D'.Integral] ! :: D' ;; D'
+[D'.Int] ! :: D' ;; D'
 ! :: #factorial
 
-[R'.Real] gamma :: R' ;; R'
+[F'.Flt] gamma :: F' ;; F'
 gamma :: #gamma
 
 (N'.Num) factorial :: N' ;; N'
 factorial :: (!, gamma)
 
-pi :: () ;; F64
+pi :: () ;; Flt
 pi :: 3.14159265358979323846
 
-π :: () ;; F64
+π :: () ;; Flt
 π :: pi
 
-e :: () ;; F64
+e :: () ;; Flt
 e :: 2.71828182845904523536
 
 
@@ -182,18 +182,18 @@ nPr :: #nPr
 
 
 
-[R'.Real] \2  :: R' ;; R'
+[F'.Flt] \2  :: F' ;; F'
 \2  :: #sqrt
 
-[R'.Real] \3  :: R' ;; R'
+[F'.Flt] \3  :: F' ;; F'
 \3  :: #cbrt
 
-[R'.Real] l2  :: R' ;; R'
+[F'.Flt] l2  :: F' ;; F'
 l2  :: #log2
 
-[R'.Real] l10  :: R' ;; R'
+[F'.Flt] l10  :: F' ;; F'
 l10 :: #log10
 
 
-[R'.Real] Vec2 :: [x.R', y.R']
-[R'.Real] Vec3 :: [x.R', y.R', z.R']
+[F'.Flt] Vec2 :: [x.F', y.F']
+[F'.Flt] Vec3 :: [x.F', y.F', z.F']

@@ -9,53 +9,23 @@ Std #Module
 
 
 
-"Signed Integers"
-Int :: (I8, I16, I32, I64)
-I8  :: #Int8
-I16 :: #Int16
-I32 :: #Int32
-I64 :: #Int64
+"Signed Integer"
+Int :: #Int
 
-"Unsigned Integers"
-Unt :: (U8, U16, U32, U64)
-U8  :: #Unt8
-U16 :: #Unt16
-U32 :: #Unt32
-U64 :: #Unt64
 
 "Floating Point"
-Flt :: (F16, F32, F64)
-F16 :: #Flt16
-F32 :: #Flt32
-F64 :: #Flt64
-
-"Posits"
-Pst :: (P8, P16, P32, P64)
-P8  :: #Pst8
-P16 :: #Pst16
-P32 :: #Pst32
-P64 :: #Pst64
-
-Num  :: (Int, Unt, Flt, Pst)
-
-Real :: (Flt, Pst)
-
-Integral :: (Int, Unt)
+Flt :: #Flt
 
 
-Sld  :: (S8, S16, S32, S64, S128, S256, S512)
-S8   :: #S8
-S16  :: #S16
-S32  :: #S32
-S64  :: #S64
-S128 :: #S128
-S256 :: #S256
-S512 :: #S512
+
+Num  :: (Int, Flt)
 
 
-Bl :: (True.[], False.[]) #BoolTF
 
-Any :: #Any
+Bl    :: #Bool
+True  :: #True
+False :: #False
+
 
 
 [N'.Num] + :: [N', N'] ;; N'
@@ -113,11 +83,6 @@ Any :: #Any
 [True,  _, y] !? :: y
 [False, x, _] !? :: x
 
-[T'] Maybe :: (Just.T', Nothing.[])
-
-[A', B'] Either :: (Left.A', Right.B')
-
-
 [N'.Num] inc :: N' ;; N'
 inc :: 1`+
 
@@ -147,38 +112,3 @@ dec :: 1`-
 
 [N'.Num] ^3 :: N' ;; N'
 [x] ^3 :: [x, x ^2]*
-
-
-
-[S'.Sld, N'.Integral] |+ :: [S', N'] ;; S'
-|+ :: #shadeInsert
-
-[S'.Sld, N'.Integral] |- :: [S', N'] ;; S'
-|- :: #shadeRemove
-
-[S'.Sld, N'.Integral] |= :: [S', N'] ;; S'
-|= :: #shadeRead
-
-[S'.Sld, N'.Integral] |? :: [S', N'] ;; Bl
-|? :: #shadeComp
-
-[S'.Sld, N'.Integral] |?!:: [S', N'] ;; Bl
-|?!:: |? !!
-
-
-[S'.Sld] || :: [S', S'] ;; S'
-|| :: #shadeUnion
-
-[S'.Sld] && :: [S', S'] ;; S'
-|& :: #shadeIntersection
-
-[S'.Sld] ^^ :: [S', S'] ;; S'
-|^ :: #shadeDifference
-
-[S'.Sld] !! :: S' ;; S'
-|! :: #shadeInverse
-
-
-
-fail! :: () ;; Any
-fail! :: #fail!

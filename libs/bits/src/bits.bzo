@@ -10,11 +10,8 @@ Std  #Import
 
 
 
-B8   :: #Unt8
-B16  :: #Unt16
-B32  :: #Unt32
-B64  :: #Unt64
-Bits :: (B8, B16, B32, B64)
+
+Bits :: Int
 
 
 
@@ -37,19 +34,19 @@ xor :: #xor-binop
 [T'.Bits] not :: T' ;; T'
 not :: #not-op
 
-[T'.Bits] >>  :: [T', I64] ;; T'
+[T'.Bits] >>  :: [T', Int] ;; T'
 >>  :: #rshift-binop
 
-[T'.Bits] <<  :: [T', I64] ;; T'
+[T'.Bits] <<  :: [T', Int] ;; T'
 <<  :: #lshift-binop
 
-clz :: Bits ;; I64
+clz :: Bits ;; Int
 clz :: #ctlz-op
 
-ctz :: Bits ;; I64
+ctz :: Bits ;; Int
 ctz :: #cttz-op
 
-pct :: Bits ;; I64
+pct :: Bits ;; Int
 pct :: #popcount-op
 
 
@@ -64,14 +61,5 @@ pct :: #popcount-op
 toInt  :: Bits ;; Int
 toInt  :: #trunc
 
-toUnt  :: Bits ;; Unt
-toUnt  :: #trunc
-
-toFlt  :: (B16, B32, B64) ;; Flt
+toFlt  :: Int ;; Flt
 toFlt  :: #floatcast
-
-toPst  :: (B16, B32, B64) ;; Pst
-toPst  :: #positcast
-
-toBits :: Num ;; Bits
-toBits :: #toBits
