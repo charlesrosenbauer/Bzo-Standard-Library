@@ -59,16 +59,16 @@ unzip :: #unzip
 
 
 
-[A'] Functor :: {
-  [F'.Functor] map :: [A' F', A' ;; B'] ;; B' F'
+[F'] Functor :: {
+  map :: [A' F', A' ;; B'] ;; B' F'
 }
 
-[A'] Foldable :: {
-  [F'.Foldable] fold :: [A' F', [A', A'] ;; A'] ;; A'
+[F'] Foldable :: {
+  fold :: [A' F', [A', A'] ;; A'] ;; A'
 }
 
-[A'] Reduceable :: {
-  [R'.Reduceable] reduce :: [A' R', B', [B', A'] ;; B'] ;; B'
+[R'] Reduceable :: {
+  reduce :: [A' R', B', [B', A'] ;; B'] ;; B'
 }
 
 [C'.(Functor, Reduceable)] mapreduce :: [A' C', A' ;; B', C', [C', B'] ;; C'] ;; C'
