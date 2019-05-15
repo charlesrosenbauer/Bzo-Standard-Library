@@ -23,8 +23,8 @@ Str  :: [:Chr]      "UTF String"
 
 
 
-Showable :: {
-  [S'.Showable] show :: S' ;; Str
+[S'] Showable :: {
+  show :: S' ;; Str
 }
 
 
