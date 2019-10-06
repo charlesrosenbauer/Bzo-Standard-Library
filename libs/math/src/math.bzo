@@ -41,10 +41,10 @@ cos :: #cosine
 [F'.Flt] tan :: F' ;; F'
 tan :: #tangent
 
-[F'.Flt] sin :: F' ;; F'
+[F'.Flt] asin :: F' ;; F'
 asin :: #arcsine
 
-[F'.Flt] cos :: F' ;; F'
+[F'.Flt] acos :: F' ;; F'
 acos :: #arccosine
 
 [F'.Flt] atan :: F' ;; F'
