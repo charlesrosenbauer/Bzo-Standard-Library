@@ -26,3 +26,10 @@ print :: [IO, Str] ;; IO
 [~io, str] print :: {
   str #print
   ~io }
+
+
+
+println :: [IO, Str] ;; IO
+[~io, str] println :: {
+  str #println
+  ~io }
