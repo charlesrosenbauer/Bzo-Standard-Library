@@ -147,9 +147,10 @@ prod :: [reduce: *, 1, _]          "optimized to parallel if * is associative"
 [xs] geomean :: xs prod [\\: _, xs len]
 
 [N'.Num] stdDev :: [:N'] ;; [N', N']       "[Std Dev , Average]"
-[xs] stdDev [dev, avg] :: {
+[xs] stdDev :: {
     xs mean avg
-    xs [[-: _, avg]].. mean dev }
+    xs [[-: _, avg]].. mean dev
+    [avg, dev]}
 
 [N'.Num] nCr :: [N', N'] ;; N'
 nCr :: #nCr
